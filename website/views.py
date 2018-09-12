@@ -19,6 +19,7 @@ class EstudanteListView(ListView):
     template_name = "website/lista.html"
     model = Estudante
     context_object_name = "estudantes"
+    ordering = ['nome']
 
 # CADASTRAMENTO DE ESTUDANTES
 # ----------------------------------------------
@@ -120,3 +121,9 @@ class CursoPeriodoView(DetailView):
         return context
 
 
+# DETALHE DA PENDENCIA DO ESTUDANTE
+
+class CursoPeriodoPendencia(DetailView):
+    template_name = "website/cursoperiodopendencia.html"
+    model = CursoPeriodoEstudante
+    context_object_name = "cursoperiodoestudante"

@@ -1,6 +1,6 @@
 from website.views import IndexTemplateView,  \
-     EstudanteListView, EstudanteCreateView, EstudanteUpdateView , EstudanteDeleteView, AniversariantesListView, \
-     EstudantePerfilView, CursoListView, CursoPerfilView, CursoPeriodoView
+     EstudanteListView, EstudanteCreateView, EstudanteUpdateView, EstudanteDeleteView, AniversariantesListView, \
+     EstudantePerfilView, CursoListView, CursoPerfilView, CursoPeriodoView, CursoPeriodoPendencia
 
 from django.urls import path
 
@@ -36,5 +36,8 @@ urlpatterns = [
 
     # GET /cursos/periodo/perfil/{pk}
     path('curso/periodo/perfil/<pk>', CursoPeriodoView.as_view(), name="periodo_curso"),
+
+    # GET /cursos/periodo/perfil/{pk}
+    path('curso/periodo/pendencia/<pk>', CursoPeriodoPendencia.as_view(), name="curso_periodo_pendencia"),
 
 ]
