@@ -26,7 +26,8 @@ SECRET_KEY = 'z=d(chbl7uk!jnrvnlx&n1ir&9)v0@w9zr#(klew52rz+lik=x'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost'
+    'localhost',
+    'alexsteeve.pythonanywhere.com'
 ]
 
 
