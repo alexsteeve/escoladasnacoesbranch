@@ -1,5 +1,15 @@
 from django.db import models
 
+
+class TipoCurso(models.Model):
+
+    nome = models.CharField(
+        null=False,
+        blank=False,
+        max_length=255
+    )
+
+
 class MesdoAno(models.Model):
 
     numeroMes = models.IntegerField(
@@ -98,6 +108,8 @@ class Curso(models.Model):
         blank=False,
         max_length=255
     )
+
+    tipoCurso = models.ForeignKey(TipoCurso, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome

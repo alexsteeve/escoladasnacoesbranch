@@ -3,6 +3,8 @@ from django.views.generic import TemplateView, ListView, UpdateView, CreateView,
 from helloworld.models import Estudante, Curso, Materia, CursoPeriodo, CursoPeriodoEstudante
 from website.forms import InsereEstudanteForm
 from datetime import datetime
+from .filters import UserFilter
+from django.shortcuts import render
 
 
 # PÁGINA PRINCIPAL
@@ -127,3 +129,11 @@ class CursoPeriodoPendencia(DetailView):
     template_name = "website/cursoperiodopendencia.html"
     model = CursoPeriodoEstudante
     context_object_name = "cursoperiodoestudante"
+
+# TESTE NOVA PESQUISA
+
+
+def search(request):
+    user_list = Estudante.objetos.all()
+    user_filter = UserFilter(request.GET, queryset=user_list)
+    return render(request, 'website/user_list.html', {'filter': user_filter})

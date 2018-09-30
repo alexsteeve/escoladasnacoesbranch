@@ -55,7 +55,11 @@
                               <td>{{ cursoperiodoestudante.cursoPeriodo.ano }}</td>
                               <td>{{ cursoperiodoestudante.cursoPeriodo.semestre }}</td>
                                 {% if cursoperiodoestudante.aprovacao == 0 %}
-                              <td><a class="nav-link" href="{% url 'website:curso_periodo_pendencia' pk=cursoperiodoestudante.id %}">Sim</a></td>
+                                  {% if cursoperiodoestudante.cursoPeriodo.curso.tipoCurso.id == 2 %}
+                                    <td><a class="nav-link" href="{% url 'website:curso_periodo_pendencia' pk=cursoperiodoestudante.id %}">Sim</a></td>
+                                  {% else %}
+                                    <td> Sim </td>
+                                  {% endif %}
                                 {% else %}
                                   <td> Não </td>
                                 {% endif %}
