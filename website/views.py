@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, UpdateView, CreateView, DeleteView, DetailView
 from helloworld.models import Estudante, Curso, Materia, CursoPeriodo, CursoPeriodoEstudante
-from website.forms import InsereEstudanteForm
+from website.forms import InsereEstudanteForm, MatriculaMembroForm
 from datetime import datetime
 from .filters import UserFilter
 from django.shortcuts import render
@@ -68,6 +68,7 @@ class AniversariantesListView(ListView):
     context_object_name = "estudantes"
     ordering = ['diaAniversario']
     queryset = Estudante.objetos.filter(mesAniversario=this_month)
+    ordering_fields = ('nome' , 'email')
 
 # PERFIL DO ESTUDANTE
 # ----------------------------------------------
@@ -137,3 +138,13 @@ def search(request):
     user_list = Estudante.objetos.all()
     user_filter = UserFilter(request.GET, queryset=user_list)
     return render(request, 'website/user_list.html', {'filter': user_filter})
+
+
+# MATRICULA DE MEMBROS
+# ----------------------------------------------
+
+class MatriculaCreateView(CreateView):
+    template_name = "website/matricula.html"
+    model = CursoPeriodoEstudante
+    form_class = MatriculaMembroForm
+    success_url = reverse_lazy("website:lista_estudantes")

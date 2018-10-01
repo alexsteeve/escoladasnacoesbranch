@@ -27,6 +27,11 @@
   </form>
 
   <table class="table table-bordered">
+          <div class="text-right">
+            <a href="{% url 'website:cadastra_estudante' %}" class="btn btn-primary">
+              Cadastrar Estudante
+            </a>
+          </div>
     <thead>
       <tr>
         <th>Nome</th>
@@ -37,7 +42,7 @@
     <tbody>
       {% for user in filter.qs %}
         <tr>
-          <td>{{ user.nome }}</td>
+          <td><a class="nav-link" href="{% url 'website:perfil_estudante' pk=user.id %}">{{ user.nome }}</a></td>
           <td>{{ user.celular }}</td>
           <td>{{ user.email }}</td>
         </tr>

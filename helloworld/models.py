@@ -182,27 +182,32 @@ class CursoPeriodoEstudante(models.Model):
 
     aprovacao = models.BooleanField(
         null=False,
-        blank=False
+        blank=False,
+        default=False
     )
 
     presencas = models.BooleanField(
         null=False,
-        blank=False
+        blank=False,
+        default=False
     )
 
     financeiro = models.BooleanField(
         null=False,
-        blank=False
+        blank=False,
+        default=False
     )
 
     provas = models.BooleanField(
         null=False,
-        blank=False
+        blank=False,
+        default=False
     )
 
     trabalhos = models.BooleanField(
         null=False,
-        blank=False
+        blank=False,
+        default=False
     )
 
     cursoPeriodo = models.ForeignKey(CursoPeriodo, on_delete=models.CASCADE)
