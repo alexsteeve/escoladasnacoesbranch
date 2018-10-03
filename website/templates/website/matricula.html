@@ -15,17 +15,10 @@
             Complete o formulário abaixo para matricular
             um <code>Membro</code> em um evento.
           </p>
+          <p>Membro: {{ estudante.nome }}</p>
           <form method="post">
             <!-- Não se esqueça dessa tag -->
             {% csrf_token %}
-
-            <!-- Estudante -->
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Estudante</span>
-              </div>
-              {% render_field form.estudante class+="form-control" %}
-            </div>
 
             <!-- Curso -->
             <div class="input-group mb-3">

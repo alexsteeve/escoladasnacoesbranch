@@ -67,7 +67,7 @@
                           {% endfor %}
                           </tbody>
                         </table>
-            <a href="{% url 'website:matricula_membro' %}"
+            <a href="{% url 'website:matricula_membro' pk=estudante.id %}"
                class="btn btn-primary">
               Matricular
             </a>

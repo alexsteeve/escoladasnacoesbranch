@@ -173,7 +173,7 @@ class CursoPeriodo(models.Model):
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.curso.nome
+        return self.curso.nome + " " + str(self.ano) + " período " + str(self.semestre)
 
     objetos = models.Manager()
 

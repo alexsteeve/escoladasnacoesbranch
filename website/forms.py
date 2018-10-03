@@ -33,6 +33,6 @@ class MatriculaMembroForm(forms.ModelForm):
         # Campos que estarão no form
         fields = [
             'estudante',
-            'cursoPeriodo',
+            'cursoPeriodo'
 
         ]

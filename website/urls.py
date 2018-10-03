@@ -16,6 +16,9 @@ urlpatterns = [
     # GET /estudante/cadastrar
     path('estudante/cadastrar', EstudanteCreateView.as_view(), name="cadastra_estudante"),
 
+    # GET /matricula de membro/cadastrar
+    path('estudante/matricular/<pk>', MatriculaCreateView.as_view(), name="matricula_membro"),
+
     # GET /estudantes
     path('estudantes/', EstudanteListView.as_view(), name="lista_estudantes"),
 
@@ -45,8 +48,5 @@ urlpatterns = [
 
     # GET /pesquisar/
     url(r'^search/$', search, name="search"),
-
-    # GET /matricula de membro/cadastrar
-    path('estudante/matricular', MatriculaCreateView.as_view(), name="matricula_membro"),
 
 ]
