@@ -137,7 +137,7 @@ class CursoPeriodoPendencia(DetailView):
 def search(request):
     user_list = Estudante.objetos.all()
     user_filter = UserFilter(request.GET, queryset=user_list)
-    return render(request, 'website/user_list.html', {'filter': user_filter})
+    return render(request, 'website/busca_avancada.html', {'filter': user_filter})
 
 
 # MATRICULA DE MEMBROS
