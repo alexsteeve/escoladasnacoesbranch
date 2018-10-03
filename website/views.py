@@ -30,7 +30,10 @@ class EstudanteCreateView(CreateView):
     template_name = "website/cria.html"
     model = Estudante
     form_class = InsereEstudanteForm
-    success_url = reverse_lazy("website:lista_estudantes")
+#    success_url = reverse_lazy("website:perfil_estudante", kwargs={'pk': Estudante.id})
+
+    def get_success_url(self):
+        return reverse_lazy('website:perfil_estudante', args=(self.object.id,))
 
 
 

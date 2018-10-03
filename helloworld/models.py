@@ -96,7 +96,7 @@ class Estudante(models.Model):
     escolaridade = models.ForeignKey(Escolaridade, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.matricula
+        return self.nome
 
     objetos = models.Manager()
 
@@ -171,6 +171,12 @@ class CursoPeriodo(models.Model):
     )
 
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+
+    matriculasAbertas = models.BooleanField(
+        null=False,
+        blank=False,
+        default=False
+    )
 
     def __str__(self):
         return self.curso.nome + " " + str(self.ano) + " período " + str(self.semestre)

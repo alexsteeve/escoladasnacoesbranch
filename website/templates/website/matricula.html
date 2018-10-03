@@ -20,6 +20,14 @@
             <!-- Não se esqueça dessa tag -->
             {% csrf_token %}
 
+            <!-- Estudante -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Estudante</span>
+              </div>
+              {% render_field form.estudante class+="form-control" %}
+            </div>
+            <hr>
             <!-- Curso -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
