@@ -95,6 +95,14 @@
               {% render_field form.escolaridade class+="form-control" %}
             </div>
 
+            <!-- Profissão -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Profissão</span>
+              </div>
+              {% render_field form.profissao class+="form-control" %}
+            </div>
+
             <hr />
             <div class="text-right">
               <a href="{% url 'website:lista_estudantes' %}" class="btn btn-outline-primary">Voltar</a>

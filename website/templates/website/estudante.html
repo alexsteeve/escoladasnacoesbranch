@@ -28,6 +28,7 @@
                       {% endif %}
                     </p>
                     <p><b>Escolaridade:</b> {{ estudante.escolaridade }}</p>
+                    <p><b>Profissão:</b> {{ estudante.profissao }}</p>
                     <a href="{% url 'website:atualiza_estudante' pk=estudante.id %}"
                        class="btn btn-primary">
                       Atualizar

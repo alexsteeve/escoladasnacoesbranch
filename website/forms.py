@@ -21,7 +21,8 @@ class InsereEstudanteForm(forms.ModelForm):
             'diaAniversario',
             'mesAniversario',
             'batismo',
-            'escolaridade'
+            'escolaridade',
+            'profissao'
         ]
 
 class MatriculaMembroForm(forms.ModelForm):

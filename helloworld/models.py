@@ -83,6 +83,13 @@ class Estudante(models.Model):
         blank=False
     )
 
+    profissao = models.CharField(
+        max_length=255,
+        null=False,
+        blank=False,
+        default='Não informado'
+    )
+
     diaAniversario = models.IntegerField(
         default=0,
         null=False,
