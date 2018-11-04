@@ -228,3 +228,19 @@ class CursoPeriodoEstudante(models.Model):
     estudante = models.ForeignKey(Estudante, on_delete=models.CASCADE)
 
     objetos = models.Manager()
+
+
+class CursoPeriodoEstudanteFinanceiro(models.Model):
+
+    pagamentos = models.CharField(
+        null=False,
+        blank=False,
+        max_length=255,
+        default=False
+    )
+
+    cursoPeriodo = models.ForeignKey(CursoPeriodo, on_delete=models.CASCADE)
+
+    estudante = models.ForeignKey(Estudante, on_delete=models.CASCADE)
+
+    objetos = models.Manager()
