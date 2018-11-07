@@ -223,6 +223,12 @@ class CursoPeriodoEstudante(models.Model):
         default=False
     )
 
+    pagamento = models.IntegerField(
+        null=False,
+        blank=False,
+        default=0
+    )
+
     cursoPeriodo = models.ForeignKey(CursoPeriodo, on_delete=models.CASCADE)
 
     estudante = models.ForeignKey(Estudante, on_delete=models.CASCADE)

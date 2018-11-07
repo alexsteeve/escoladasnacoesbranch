@@ -1,8 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, UpdateView, CreateView, DeleteView, DetailView
-from helloworld.models import Estudante, Curso, Materia, CursoPeriodo, CursoPeriodoEstudante, \
-    CursoPeriodoEstudanteFinanceiro
-from website.forms import InsereEstudanteForm, MatriculaMembroForm
+from helloworld.models import Estudante, Curso, Materia, CursoPeriodo, CursoPeriodoEstudante
+from website.forms import InsereEstudanteForm, MatriculaMembroForm, AtualizaPagamentoForm
 from datetime import datetime
 from .filters import UserFilter
 from django.shortcuts import render
@@ -164,20 +163,18 @@ class MatriculaCreateView(CreateView):
 
 class PagamentoUpdateView(UpdateView):
     template_name = "website/pagamentos.html"
-    model = CursoPeriodoEstudanteFinanceiro
-    fields = '__all__'
+    model = CursoPeriodoEstudante
     context_object_name = 'pagamento'
-    def get_success_url(self):
-        return reverse_lazy('website:perfil_estudante', args=(self.object.id,))
+    form_class = AtualizaPagamentoForm
+    success_url = reverse_lazy("website:lista_estudantes")
 
-# CADASTRAMENTO DE ESTUDANTES
+# EXCLUSÃO DE MATRICULA
 # ----------------------------------------------
 
-class PagamentoCreateView(CreateView):
-    template_name = "website/cria.html"
-    model = Estudante
-    form_class = InsereEstudanteForm
-#    success_url = reverse_lazy("website:perfil_estudante", kwargs={'pk': Estudante.id})
+class MatriculaDeleteView(DeleteView):
+    template_name = "website/excluiMatricula.html"
+    model = CursoPeriodoEstudante
+    context_object_name = 'matricula'
+    success_url = reverse_lazy("website:lista_estudantes")
 
-    def get_success_url(self):
-        return reverse_lazy('website:perfil_estudante', args=(self.object.id,))
+

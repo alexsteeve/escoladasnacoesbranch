@@ -1,4 +1,4 @@
-from helloworld.models import Estudante, CursoPeriodoEstudante, CursoPeriodoEstudanteFinanceiro
+from helloworld.models import Estudante, CursoPeriodoEstudante
 from django import forms
 
 # FORMULÁRIO DE INCLUSÃO DE ESTUDANTES
@@ -41,16 +41,16 @@ class MatriculaMembroForm(forms.ModelForm):
         ]
 
 
-class AtualizaPagamento(forms.ModelForm):
+class AtualizaPagamentoForm(forms.ModelForm):
 
     class Meta:
         # Modelo base
-        model = CursoPeriodoEstudanteFinanceiro
+        model = CursoPeriodoEstudante
 
         # Campos que estarão no form
         fields = [
             'estudante',
             'cursoPeriodo',
-            'pagamentos'
+            'pagamento'
 
         ]
