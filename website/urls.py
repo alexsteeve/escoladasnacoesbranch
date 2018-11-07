@@ -1,7 +1,7 @@
 from website.views import IndexTemplateView,  \
      EstudanteListView, EstudanteCreateView, EstudanteUpdateView, EstudanteDeleteView, AniversariantesListView, \
      EstudantePerfilView, CursoListView, CursoPerfilView, CursoPeriodoView, CursoPeriodoPendencia, search, \
-     MatriculaCreateView
+     MatriculaCreateView, PagamentoUpdateView
 from django.conf.urls import url
 
 from django.urls import path
@@ -48,5 +48,8 @@ urlpatterns = [
 
     # GET /pesquisar/
     url(r'^search/$', search, name="search"),
+
+    # GET/POST /pagamentos/{pk}
+    path('estudante/pagamento/<pk>', PagamentoUpdateView.as_view(), name="pagamento"),
 
 ]
