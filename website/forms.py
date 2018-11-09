@@ -50,7 +50,6 @@ class AtualizaPagamentoForm(forms.ModelForm):
         # Campos que estarão no form
         fields = [
             'estudante',
-            'cursoPeriodo',
             'pagamento'
 
         ]

@@ -155,6 +155,7 @@ class MatriculaCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super(MatriculaCreateView, self).get_context_data(**kwargs)
         context['estudante'] = Estudante.objetos.filter(id=self.kwargs['pk'])
+        context['pk'] = self.kwargs['pk']
         return context
 
 # ATUALIZA PAGAMENTO DE ESTUDANTE
