@@ -161,6 +161,10 @@ class MatriculaCreateView(CreateView):
         context['pk'] = self.kwargs['pk']
         return context
 
+    def get_success_url(self, **kwargs):
+        return reverse_lazy('website:perfil_estudante', args=(self.kwargs['pk'],))
+
+
 # ATUALIZA PAGAMENTO DE ESTUDANTE
 # ----------------------------------------------
 
