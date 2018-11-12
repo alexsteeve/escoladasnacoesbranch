@@ -152,9 +152,12 @@ class MatriculaCreateView(CreateView):
     form_class = MatriculaMembroForm
     success_url = reverse_lazy("website:lista_estudantes")
 
+    def get_initial(self):
+        return {'estudante': Estudante.objetos.get(id=self.kwargs['pk'])}
+
     def get_context_data(self, **kwargs):
         context = super(MatriculaCreateView, self).get_context_data(**kwargs)
-        context['estudante'] = Estudante.objetos.filter(id=self.kwargs['pk'])
+        context['estudante'] = Estudante.objetos.get(id=self.kwargs['pk'])
         context['pk'] = self.kwargs['pk']
         return context
 

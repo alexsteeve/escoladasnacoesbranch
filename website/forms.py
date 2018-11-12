@@ -40,7 +40,6 @@ class MatriculaMembroForm(forms.ModelForm):
 
         ]
 
-
 class AtualizaPagamentoForm(forms.ModelForm):
 
     class Meta:
