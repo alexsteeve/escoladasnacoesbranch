@@ -47,6 +47,7 @@
                             <th scope="col">Ano</th>
                             <th scope="col">Período</th>
                             <th scope="col">Pendência?</th>
+                            <th scope="col">Pagamento</th>
                             <th scope="col">Ação</th>
                           </tr>
                           </thead>
@@ -65,6 +66,7 @@
                                 {% else %}
                                   <td> Não </td>
                                 {% endif %}
+                                <td>{{ cursoperiodoestudante.pagamento}}</td>
                                 <td><a href="{% url 'website:pagamento' pk=cursoperiodoestudante.id %}"
                                    class="btn btn-primary">
                                       Pagar

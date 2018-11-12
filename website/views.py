@@ -174,7 +174,8 @@ class PagamentoUpdateView(UpdateView):
     model = CursoPeriodoEstudante
     context_object_name = 'pagamento'
     form_class = AtualizaPagamentoForm
-    success_url = reverse_lazy("website:lista_estudantes")
+    success_url = reverse_lazy("website:search")
+
 
 # EXCLUSÃO DE MATRICULA
 # ----------------------------------------------
