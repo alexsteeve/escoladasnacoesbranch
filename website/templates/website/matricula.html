@@ -15,7 +15,6 @@
             Complete o formulário abaixo para matricular
             um <code>Membro</code> em um evento.
           </p>
-          <p>Membro: {{ estudante.matricula }} </p>
           <form method="post">
             <!-- Não se esqueça dessa tag -->
             {% csrf_token %}
@@ -25,7 +24,8 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">Estudante</span>
               </div>
-              {% render_field form.estudante class+="form-control" %}
+              {% render_field form.estudante class+="form-control" hidden=true %}
+                <span class="input-group-text">{{ estudante.nome }}</span>
             </div>
             <hr>
             <!-- Curso -->
