@@ -1,7 +1,7 @@
 from website.views import IndexTemplateView,  \
      EstudanteListView, EstudanteCreateView, EstudanteUpdateView, EstudanteDeleteView, AniversariantesListView, \
      EstudantePerfilView, CursoListView, CursoPerfilView, CursoPeriodoView, CursoPeriodoPendencia, search, \
-     MatriculaCreateView, PagamentoUpdateView, MatriculaDeleteView, ConfirmaPagamentoView
+     MatriculaCreateView, PagamentoUpdateView, MatriculaDeleteView, ConfirmaPagamentoView, IndexTemplateView2
 from django.conf.urls import url
 
 from django.urls import path
@@ -57,5 +57,8 @@ urlpatterns = [
 
     # GET /pagamentos-sucesso/
     path('estudante/pagamento-sucesso/', ConfirmaPagamentoView.as_view(), name="pagamento-sucesso"),
+
+    # GET /index2/
+    path('novo/', IndexTemplateView2.as_view(), name="index2"),
 
 ]

@@ -196,3 +196,10 @@ class MatriculaDeleteView(DeleteView):
 class ConfirmaPagamentoView(TemplateView):
     template_name = "website/pagamento-sucesso.html"
 
+# PÁGINA PRINCIPAL NOVA
+# ----------------------------------------------
+
+
+class IndexTemplateView2(TemplateView):
+    template_name = "website/index2.html"
+

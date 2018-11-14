@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-br" Xmanifest="appcache.manifest">
+    {% load static tempo_atual %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Shopping</title>
+    <meta name="description" content="WebApp de exemplo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'website/css/main.css' %}">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="{% static 'website/img/icon.png' %}">
+    <meta name="theme-color" content="#F77F00">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Shopping">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'website/img/icon.png' %}">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="{% static 'website/img/icon.png' %}">
+    <meta name="msapplication-TileColor" content="#F77F00">
+
+</head>
+<body>
+<div class="current-page">
+
+
+<main class="home">
+
+	<h1 class="z-depth-1">Escola das Nações</h1>
+
+	<div class="collection z-depth-1">
+		<a href="lojas.html" class="collection-item waves-effect">
+			<!--<i class="material-icons">card_giftcard</i>-->
+            <i class='fas fa-book-open'></i>
+			Matriculas
+		</a>
+		<a href="lojas.html" class="collection-item waves-effect">
+			<!--<i class="material-icons">card_giftcard</i>-->
+            <i class='fas fa-chalkboard-teacher'></i>
+			Cursos
+		</a>
+		<a href="lojas.html" class="collection-item waves-effect">
+			<!--<i class="material-icons">card_giftcard</i>-->
+            <i class='fas fa-user-graduate'></i>
+			Cadastro de Estudantes
+		</a>
+    </div>
+
+</main>
+
+</div><!--/.current-page-->
+
+<script src="{% static 'website/js/jquery.min.js' %}"></script>
+<script src="{% static 'website/js/materialize-0.97.0.min.js' %}"></script>
+<script src="{% static 'website/js/spa.js' %}"></script>
+<script src="{% static 'website/js/main.js' %}"></script>
+<script src="{% static 'website/js/install.js' %}"></script>
+
+<script src="{% static 'website/js/pagamento.js' %}"></script>
+<script src="{% static 'website/js/quagga.min.js' %}"></script>
+<script src="{% static 'website/js/barcode.js' %}"></script>
+
+</body>
+</html>
