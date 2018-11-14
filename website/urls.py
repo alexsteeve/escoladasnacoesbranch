@@ -1,7 +1,7 @@
 from website.views import IndexTemplateView,  \
      EstudanteListView, EstudanteCreateView, EstudanteUpdateView, EstudanteDeleteView, AniversariantesListView, \
      EstudantePerfilView, CursoListView, CursoPerfilView, CursoPeriodoView, CursoPeriodoPendencia, search, \
-     MatriculaCreateView, PagamentoUpdateView, MatriculaDeleteView
+     MatriculaCreateView, PagamentoUpdateView, MatriculaDeleteView, ConfirmaPagamentoView
 from django.conf.urls import url
 
 from django.urls import path
@@ -54,5 +54,8 @@ urlpatterns = [
 
     # GET/POST /estudantes/matricula/excluir/{pk}
     path('estudante/matricula/excluir/<pk>', MatriculaDeleteView.as_view(), name="deleta_matricula"),
+
+    # GET /pagamentos-sucesso/
+    path('estudante/pagamento-sucesso/', ConfirmaPagamentoView.as_view(), name="pagamento-sucesso"),
 
 ]

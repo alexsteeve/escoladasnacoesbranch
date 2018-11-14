@@ -1,4 +1,4 @@
-from helloworld.models import Estudante, CursoPeriodoEstudante
+from helloworld.models import Estudante, CursoPeriodoEstudante, CursoPeriodo
 from django import forms
 
 # FORMULÁRIO DE INCLUSÃO DE ESTUDANTES

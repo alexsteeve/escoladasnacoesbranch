@@ -150,7 +150,6 @@ class MatriculaCreateView(CreateView):
     template_name = "website/matricula.html"
     model = CursoPeriodoEstudante
     form_class = MatriculaMembroForm
-    success_url = reverse_lazy("website:lista_estudantes")
 
     def get_initial(self):
         return {'estudante': Estudante.objetos.get(id=self.kwargs['pk'])}
@@ -174,7 +173,10 @@ class PagamentoUpdateView(UpdateView):
     model = CursoPeriodoEstudante
     context_object_name = 'pagamento'
     form_class = AtualizaPagamentoForm
-    success_url = reverse_lazy("website:search")
+    success_url = reverse_lazy('website:pagamento-sucesso')
+
+    # def get_success_url(self, **kwargs):
+    #     return reverse_lazy('website:pagamento', args=(self.kwargs['pk'],))
 
 
 # EXCLUSÃO DE MATRICULA
@@ -186,4 +188,10 @@ class MatriculaDeleteView(DeleteView):
     context_object_name = 'matricula'
     success_url = reverse_lazy("website:lista_estudantes")
 
+
+# CONFIRMACAO DE PAGAMENTO
+# ----------------------------------------------
+
+class ConfirmaPagamentoView(TemplateView):
+    template_name = "website/pagamento-sucesso.html"
 
