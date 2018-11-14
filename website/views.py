@@ -157,6 +157,7 @@ class MatriculaCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super(MatriculaCreateView, self).get_context_data(**kwargs)
         context['estudante'] = Estudante.objetos.get(id=self.kwargs['pk'])
+        context['cursoperiodo'] = CursoPeriodo.objetos.filter(matriculasAbertas=1)
         context['pk'] = self.kwargs['pk']
         return context
 

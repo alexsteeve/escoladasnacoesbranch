@@ -33,8 +33,12 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">Evento</span>
               </div>
-              {% render_field form.cursoPeriodo class+="form-control" %}
-            </div>
+              <select name="cursoPeriodo" required="" id="id_cursoPeriodo">
+                <option value="" selected="">---------</option>
+                {% for cursoperiodo in cursoperiodo %}
+                  <option value={{ cursoperiodo.id }}>{{ cursoperiodo.curso.nome }} / {{ cursoperiodo.diaSemana }}</option>
+                {% endfor %}
+              </select>
             <hr>
             <div class="text-right">
               <a href="{% url 'website:perfil_estudante' pk=estudante.id %}" class="btn btn-outline-primary">Voltar</a>
