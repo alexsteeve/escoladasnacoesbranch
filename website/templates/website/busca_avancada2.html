@@ -62,35 +62,47 @@
 
 </div>
 
-		<div id="estudantes" class="section">
-                <br>
-                <br>
-                <br>
-                <br>
-                {% for user in filter.qs %}
+    <div id="estudantes" class="section">
+        <br>
+        <br>
+        <br>
+        <br>
+          <form method="get">
+            <div class="well">
+              <h4 style="margin-top: 0">Busca avançada de membros</h4>
+              <div class="row">
+                <div class="form-group col-sm-4 col-md-3">
+                  {{ filter.form.nome.label_tag }}
+                  {% render_field filter.form.nome class="form-control" %}
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                  {{ filter.form.celular.label_tag }}
+                  {% render_field filter.form.celular class="form-control" %}
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                  {{ filter.form.email.label_tag }}
+                  {% render_field filter.form.email class="form-control" %}
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-search"></span> Pesquisar
+              </button>
+            </div>
+          </form>
+        {% for user in filter.qs %}
 
-					<h6 class="container blue-grey-text"></h6>
-					<div class="collection">
-		     	
-				<a class="collection-item waves-effect black-text" 
-				   href="loja-brooksfield.html">{{ user.nome }}</a>
-		            </div>
-                {% endfor %}
+            <h6 class="container blue-grey-text"></h6>
+            <div class="collection">
+
+        <a class="collection-item waves-effect black-text"
+           href="loja-brooksfield.html">{{ user.nome }}</a>
+            </div>
+        {% endfor %}
 	</div>
 
 </main>
 
 </div><!--/.current-page-->
-
-<script src="js/vendor/jquery.min.js"></script>
-<script src="js/vendor/materialize-0.97.0.min.js"></script>
-<script src="js/spa.js"></script>
-<script src="js/main.js"></script>
-<script src="js/install.js"></script>
-
-<script src="js/pagamento.js"></script>
-<script src="js/vendor/quagga.min.js"></script>
-<script src="js/barcode.js"></script>
 
 </body>
 </html>
