@@ -134,7 +134,7 @@ class CursoPeriodoPendencia(DetailView):
     model = CursoPeriodoEstudante
     context_object_name = "cursoperiodoestudante"
 
-# TESTE NOVA PESQUISA
+# PESQUISA MATRICULA
 
 
 def search(request):
@@ -202,4 +202,12 @@ class ConfirmaPagamentoView(TemplateView):
 
 class IndexTemplateView2(TemplateView):
     template_name = "website/index2.html"
+
+# PESQUISA VERSAO 2 DO SITE
+
+
+def search2(request):
+    user_list = Estudante.objetos.all()
+    user_filter = UserFilter(request.GET, queryset=user_list)
+    return render(request, 'website/busca_avancada2.html', {'filter': user_filter})
 

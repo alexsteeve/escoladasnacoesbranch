@@ -1,7 +1,7 @@
 from website.views import IndexTemplateView,  \
      EstudanteListView, EstudanteCreateView, EstudanteUpdateView, EstudanteDeleteView, AniversariantesListView, \
      EstudantePerfilView, CursoListView, CursoPerfilView, CursoPeriodoView, CursoPeriodoPendencia, search, \
-     MatriculaCreateView, PagamentoUpdateView, MatriculaDeleteView, ConfirmaPagamentoView, IndexTemplateView2
+     MatriculaCreateView, PagamentoUpdateView, MatriculaDeleteView, ConfirmaPagamentoView, IndexTemplateView2, search2
 from django.conf.urls import url
 
 from django.urls import path
@@ -60,5 +60,8 @@ urlpatterns = [
 
     # GET /index2/
     path('novo/', IndexTemplateView2.as_view(), name="index2"),
+
+    # GET /pesquisar2/
+    url(r'^search2/$', search2, name="search2"),
 
 ]
