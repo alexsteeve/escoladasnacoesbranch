@@ -1,6 +1,6 @@
 {
-  "short_name": "Shopping",
-  "name": "O Shopping",
+  "short_name": "Escola das Nações",
+  "name": "Escola das Nações",
   "icons": [
     {
       "src": "{% static 'website/img/icon.png' %}",
