@@ -21,7 +21,7 @@ var files = [
   "css/main.css",
   "icons/MaterialIcons-Regular.ttf",
   "icons/material.css",
-  "img/entrada.jpg",
+  "img/entrada.png",
   "img/icon.png",
   "img/ticket.png",
   "js/barcode.js",
