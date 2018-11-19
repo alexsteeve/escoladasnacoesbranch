@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Nossas Lojas</title>
-    <meta name="description" content="Pagina de Matricula de Estudantes">
+    <title>Burberry</title>
+    <meta name="description" content="Detalhe do Estudante">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'website/css/main.css' %}">
     
@@ -36,15 +36,15 @@
 <div class="current-page">
 
 
-<main class="estudantes">
+<main class="estudante">
 
-<div class="topo-fixo z-depth-1">
+	<div class="topo-fixo z-depth-1">
     <div class="valign-wrapper amber darken-2 white-text">
 		<div>
 			<a href="{% url 'website:index2' %}"><i class="material-icons waves-effect waves-light waves-circle">arrow_back</i></a>
 		</div>
 
-        <h5 class="titulo">Estudantes</h5>
+        <h5 class="titulo">{{ estudante.nome }}</h5>
 
         <div>
             <i class="material-icons waves-effect waves-light
@@ -60,46 +60,39 @@
         </div>
     </div>
 
-</div>
+    </div>
 
-    <div id="estudantes" class="section">
-        <br>
-        <br>
-        <br>
-        <br>
-          <form method="get">
-            <div class="well">
-              <h4 style="margin-left: 100">Busca avançada de membros</h4>
-              <div class="row">
-                <div class="form-group col-sm-4 col-md-3">
-                  Nome
-                  {% render_field filter.form.nome class="form-control" %}
-                </div>
-                <div class="form-group col-sm-4 col-md-3">
-                  Celular
-                  {% render_field filter.form.celular class="form-control" %}
-                </div>
-                <div class="form-group col-sm-4 col-md-3">
-                  E-mail
-                  {% render_field filter.form.email class="form-control" %}
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary">
-                <span class="glyphicon glyphicon-search"></span> Pesquisar
-              </button>
-            </div>
-          </form>
-        {% for user in filter.qs %}
-
-            <h6 class="container blue-grey-text"></h6>
-            <div class="collection">
-
-        <a class="collection-item waves-effect black-text"
-           href="{% url 'website:perfil_estudante2' pk=user.id %}">{{ user.nome }}</a>
-            </div>
-        {% endfor %}
+	<div class="section white">
+		<div class="row container">
+            <br>
+			<h2 class="header">{{ estudante.nome }}</h2>
+		</div>
 	</div>
 
+	<div class="section amber lighten-5">
+		<div class="row container">
+			<p>Celular: <strong>{{ estudante.celular }}</strong></p>
+			<p>Data de Aniverário: <strong>{{ estudante.diaAniversario }} de {{ estudante.mesAniversario }}</strong></p>
+			<p>Email: <strong>{{ estudante.email }}</strong></p>
+			<p>Endereço: <strong>{{ estudante.endereco }}</strong></p>
+			<p>Cpf: <strong>{{ estudante.cpf }}</strong></p>
+		</div>
+	</div>
+
+	<div class="section white">
+		<div class="row container">
+            <br>
+			<h2 class="header">Cursos</h2>
+		</div>
+	</div>
+
+	<div class="section amber lighten-5">
+		<div class="row container">
+          {% for cursoperiodoestudante in cursoperiodoestudante %}
+            <p><a class="nav-link" href="{% url 'website:periodo_curso' pk=cursoperiodoestudante.cursoPeriodo.id %}">{{ cursoperiodoestudante.cursoPeriodo }}</a></p>
+          {% endfor %}
+        </div>
+    </div>
 </main>
 
 </div><!--/.current-page-->

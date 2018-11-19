@@ -211,3 +211,18 @@ def search2(request):
     user_filter = UserFilter(request.GET, queryset=user_list)
     return render(request, 'website/busca_avancada2.html', {'filter': user_filter})
 
+# NOVO PERFIL DO ESTUDANTE
+# ----------------------------------------------
+
+
+class EstudantePerfilView2(DetailView):
+    template_name = "website/estudante2.html"
+    model = Estudante
+    context_object_name = "estudante"
+
+    def get_context_data(self, **kwargs):
+        context = super(EstudantePerfilView2, self).get_context_data(**kwargs)
+        context['cursoperiodoestudante'] = CursoPeriodoEstudante.objetos.filter(estudante_id=self.kwargs['pk'])
+        return context
+
+
