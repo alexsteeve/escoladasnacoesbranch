@@ -70,23 +70,28 @@
           <form method="get">
             <div class="well">
               <h4 style="margin-left: 100">Busca avançada de membros</h4>
-              <div class="row">
+              <div>
                 <div class="form-group col-sm-4 col-md-3">
-                  Nome
+                  &nbsp &nbsp Nome
                   {% render_field filter.form.nome class="form-control" %}
                 </div>
                 <div class="form-group col-sm-4 col-md-3">
-                  Celular
+                  &nbsp &nbsp Celular
                   {% render_field filter.form.celular class="form-control" %}
                 </div>
                 <div class="form-group col-sm-4 col-md-3">
-                  E-mail
+                  &nbsp &nbsp E-mail
                   {% render_field filter.form.email class="form-control" %}
                 </div>
               </div>
               <button type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-search"></span> Pesquisar
               </button>
+                <div align="right">
+                    <a href="{% url 'website:cadastra_estudante' %}" class="btn btn-primary">
+                      Cadastrar Estudante
+                    </a>
+                </div>
             </div>
           </form>
         {% for user in filter.qs %}

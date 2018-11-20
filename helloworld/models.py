@@ -186,7 +186,7 @@ class CursoPeriodo(models.Model):
     )
 
     def __str__(self):
-        return str(self.ano) + "/" + str(self.semestre) + " " + str(self.local) +" "+ self.curso.nome
+        return str(self.ano) + "/" + str(self.semestre) + " "+ self.curso.nome
 
     objetos = models.Manager()
 
