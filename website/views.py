@@ -226,3 +226,16 @@ class EstudantePerfilView2(DetailView):
         return context
 
 
+# ATUALIZAÇÃO DE ESTUDANTES
+# ----------------------------------------------
+
+class EstudanteUpdateView2(UpdateView):
+    template_name = "website/atualiza2.html"
+    model = Estudante
+    fields = '__all__'
+    context_object_name = 'estudante'
+    # success_url = reverse_lazy("website:search2")
+
+    def get_success_url(self, **kwargs):
+        return reverse_lazy('website:perfil_estudante2', args=(self.kwargs['pk'],))
+

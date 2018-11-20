@@ -2,7 +2,7 @@ from website.views import IndexTemplateView,  \
      EstudanteListView, EstudanteCreateView, EstudanteUpdateView, EstudanteDeleteView, AniversariantesListView, \
      EstudantePerfilView, CursoListView, CursoPerfilView, CursoPeriodoView, CursoPeriodoPendencia, search, \
      MatriculaCreateView, PagamentoUpdateView, MatriculaDeleteView, ConfirmaPagamentoView, IndexTemplateView2,\
-     search2, EstudantePerfilView2
+     search2, EstudantePerfilView2, EstudanteUpdateView2
 from django.conf.urls import url
 
 from django.urls import path
@@ -67,5 +67,8 @@ urlpatterns = [
 
     # GET /estudante2/perfil/{pk}
     path('estudante2/perfil/<pk>', EstudantePerfilView2.as_view(), name="perfil_estudante2"),
+
+    # GET/POST /estudante2/{pk}
+    path('estudante2/<pk>', EstudanteUpdateView2.as_view(), name="atualiza_estudante2"),
 
 ]

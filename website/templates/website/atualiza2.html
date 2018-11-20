@@ -1,0 +1,164 @@
+<!doctype html>
+{% load widget_tweaks static %}
+<html lang="pt-br" Xmanifest="appcache.manifest">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Burberry</title>
+    <meta name="description" content="Detalhe do Estudante">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'website/css/main.css' %}">
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="{% static 'website/img/icon.png' %}">
+    <meta name="theme-color" content="#F77F00">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Escola das Nacoes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon-precomposed" href="img/icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="img/icon.png">
+    <meta name="msapplication-TileColor" content="#F77F00">
+
+    <script>
+    if (window.location.protocol != "https:" && window.location.hostname == "sergiolopes.github.io")
+        window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+    </script>
+
+</head>
+
+<body>
+
+	<div class="topo-fixo z-depth-1">
+    <div class="valign-wrapper amber darken-2 white-text">
+		<div>
+			<a href="{% url 'website:search2' %}"><i class="material-icons waves-effect waves-light waves-circle">arrow_back</i></a>
+		</div>
+
+        <h5 class="titulo">Atualizar Dados de Estudante</h5>
+
+        <div>
+            <i class="material-icons waves-effect waves-light
+                      waves-circle dropdown-button"
+                data-activates="submenu" data-gutter="5"
+                data-constrainwidth="false">
+                    more_vert
+            </i>
+            <ul id="submenu" class="dropdown-content">
+            	<li><a class="black-text" href="pagar-estacionamento.html">Cursos</a></li>
+            	<li><a class="black-text" href="{% url 'website:index2' %}">Entrada</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+    <br>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <form method="post">
+            <!-- Não se esqueça dessa tag -->
+            {% csrf_token %}
+
+            <!-- Nome -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Nome</span>
+              </div>
+              {% render_field form.nome class+="form-control" %}
+            </div>
+
+            <!-- Email -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+              </div>
+              {% render_field form.email class+="form-control" %}
+            </div>
+
+            <!-- Endereco -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Endereço</span>
+              </div>
+              {% render_field form.endereco class+="form-control" %}
+            </div>
+
+            <!-- Cpf -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Cpf</span>
+              </div>
+              {% render_field form.cpf class+="form-control" %}
+            </div>
+
+            <!-- Celular -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Celular</span>
+              </div>
+              {% render_field form.celular class+="form-control" %}
+            </div>
+
+            <!-- DiaNascimento -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Dia do Aniversário</span>
+              </div>
+              {% render_field form.diaAniversario class+="form-control" %}
+            </div>
+
+            <!-- MesNascimento -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Mês do Aniversário</span>
+              </div>
+              {% render_field form.mesAniversario class+="form-control" %}
+            </div>
+
+            <!-- Batismo -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Batismo</span>
+              </div>
+              {% render_field form.batismo class+="form-control" %}
+            </div>
+
+            <!-- Escolaridade -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Escolaridade</span>
+              </div>
+              {% render_field form.escolaridade class+="form-control" %}
+            </div>
+
+            <!-- Profissão -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Profissão</span>
+              </div>
+              {% render_field form.profissao class+="form-control" %}
+            </div>
+
+            <hr />
+            <div class="text-right">
+              <a href="{% url 'website:lista_estudantes' %}" class="btn btn-outline-primary">Voltar</a>
+              <button class="btn btn-primary">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
