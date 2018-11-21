@@ -226,7 +226,7 @@ class EstudantePerfilView2(DetailView):
         return context
 
 
-# ATUALIZAÇÃO DE ESTUDANTES
+# NOVA ATUALIZAÇÃO DE ESTUDANTES
 # ----------------------------------------------
 
 class EstudanteUpdateView2(UpdateView):
@@ -239,7 +239,7 @@ class EstudanteUpdateView2(UpdateView):
     def get_success_url(self, **kwargs):
         return reverse_lazy('website:perfil_estudante2', args=(self.kwargs['pk'],))
 
-# MATRICULA DE MEMBROS
+# NOVA MATRICULA DE MEMBROS
 # ----------------------------------------------
 
 class MatriculaCreateView2(CreateView):
@@ -258,6 +258,17 @@ class MatriculaCreateView2(CreateView):
         return context
 
     def get_success_url(self, **kwargs):
-        return reverse_lazy('website:perfil_estudante', args=(self.kwargs['pk'],))
+        return reverse_lazy('website:perfil_estudante2', args=(self.kwargs['pk'],))
 
 
+# NOVO CADASTRAMENTO DE ESTUDANTES
+# ----------------------------------------------
+
+class EstudanteCreateView2(CreateView):
+    template_name = "website/cria2.html"
+    model = Estudante
+    form_class = InsereEstudanteForm
+#    success_url = reverse_lazy("website:perfil_estudante", kwargs={'pk': Estudante.id})
+
+    def get_success_url(self):
+        return reverse_lazy('website:perfil_estudante2', args=(self.object.id,))
