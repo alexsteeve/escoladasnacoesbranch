@@ -2,7 +2,8 @@ from website.views import IndexTemplateView,  \
      EstudanteListView, EstudanteCreateView, EstudanteUpdateView, EstudanteDeleteView, AniversariantesListView, \
      EstudantePerfilView, CursoListView, CursoPerfilView, CursoPeriodoView, CursoPeriodoPendencia, search, \
      MatriculaCreateView, PagamentoUpdateView, MatriculaDeleteView, ConfirmaPagamentoView, IndexTemplateView2,\
-     search2, EstudantePerfilView2, EstudanteUpdateView2, MatriculaCreateView2, EstudanteCreateView2
+     search2, EstudantePerfilView2, EstudanteUpdateView2, MatriculaCreateView2, EstudanteCreateView2, \
+     PagamentoUpdateView2, ConfirmaPagamentoView2
 from django.conf.urls import url
 
 from django.urls import path
@@ -77,4 +78,9 @@ urlpatterns = [
     # GET /estudante/cadastrar
     path('estudante/cadastrar2/', EstudanteCreateView2.as_view(), name="cadastra_estudante2"),
 
+    # GET/POST /pagamentos/{pk}
+    path('estudante/pagamento2/<pk>', PagamentoUpdateView2.as_view(), name="pagamento2"),
+
+    # GET /pagamentos-sucesso/
+    path('estudante/pagamento-sucesso2/', ConfirmaPagamentoView2.as_view(), name="pagamento-sucesso2"),
 ]

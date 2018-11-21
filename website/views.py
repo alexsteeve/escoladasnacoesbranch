@@ -272,3 +272,25 @@ class EstudanteCreateView2(CreateView):
 
     def get_success_url(self):
         return reverse_lazy('website:perfil_estudante2', args=(self.object.id,))
+
+# ATUALIZA PAGAMENTO DE ESTUDANTE
+# ----------------------------------------------
+
+
+class PagamentoUpdateView2(UpdateView):
+    template_name = "website/pagamentos2.html"
+    model = CursoPeriodoEstudante
+    context_object_name = 'pagamento'
+    form_class = AtualizaPagamentoForm
+    success_url = reverse_lazy('website:pagamento-sucesso2')
+
+    # def get_success_url(self, **kwargs):
+    #     return reverse_lazy('website:pagamento', args=(self.kwargs['pk'],))
+
+
+# CONFIRMACAO DE PAGAMENTO
+# ----------------------------------------------
+
+class ConfirmaPagamentoView2(TemplateView):
+    template_name = "website/pagamento-sucesso2.html"
+
