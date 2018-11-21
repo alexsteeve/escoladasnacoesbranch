@@ -239,3 +239,25 @@ class EstudanteUpdateView2(UpdateView):
     def get_success_url(self, **kwargs):
         return reverse_lazy('website:perfil_estudante2', args=(self.kwargs['pk'],))
 
+# MATRICULA DE MEMBROS
+# ----------------------------------------------
+
+class MatriculaCreateView2(CreateView):
+    template_name = "website/matricula2.html"
+    model = CursoPeriodoEstudante
+    form_class = MatriculaMembroForm
+
+    def get_initial(self):
+        return {'estudante': Estudante.objetos.get(id=self.kwargs['pk'])}
+
+    def get_context_data(self, **kwargs):
+        context = super(MatriculaCreateView2, self).get_context_data(**kwargs)
+        context['estudante'] = Estudante.objetos.get(id=self.kwargs['pk'])
+        context['cursoperiodo'] = CursoPeriodo.objetos.filter(matriculasAbertas=1)
+        context['pk'] = self.kwargs['pk']
+        return context
+
+    def get_success_url(self, **kwargs):
+        return reverse_lazy('website:perfil_estudante', args=(self.kwargs['pk'],))
+
+
